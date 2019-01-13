@@ -1,7 +1,6 @@
 # homekit-neopixel-rpi
 homekit-neopixel-rpi 
 
-
 <img src="image.jpg" width="100%">
 
 ## You need
@@ -15,6 +14,8 @@ Hardware:
 Software
 
 ​	homebridge on Raspberry Pi
+
+​	python3
 
 
 
@@ -56,7 +57,5 @@ sudo FLASK_APP=server.py flask run
 
 
 
-
-
-(homebridge neopixel)[https://www.studiopieters.nl/homebridge-neopixel-light/]
-(RPi neipixel)[https://learn.adafruit.com/neopixels-on-raspberry-pi/raspberry-pi-wiring]
+[homebridge neopixel](https://www.studiopieters.nl/homebridge-neopixel-light/)
+[RPi neipixel](https://learn.adafruit.com/neopixels-on-raspberry-pi/raspberry-pi-wiring)
