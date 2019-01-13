@@ -47,7 +47,27 @@ sudo npm install -g pm2 homebridge homebridge-neopixel --unsafe-perm
         "brightness": {
         "status": "http://localhost:5000/bright",
         "url": "http://localhost:5000/set/%s"
+ },
+{
+ 	"accessory": "HTTP-NEO",
+        "name": "Neo Rainbow",
+
+        "switch": {
+        "status": "http://localhost:5000/status",
+        "powerOn": "http://localhost:5000/rainbow",
+        "powerOff": "http://localhost:5000/off"
+        },
+
+        "color": {
+        "status": "http://localhost:5000/color",
+        "url": "http://localhost:5000/set/%s"
+        },
+
+        "brightness": {
+        "status": "http://localhost:5000/bright",
+        "url": "http://localhost:5000/set/%s"
         }
+  }
 ```
 
 ### Start the homebridge
