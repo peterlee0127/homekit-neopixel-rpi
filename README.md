@@ -1,29 +1,28 @@
 # homekit-neopixel-rpi
 homekit-neopixel-rpi 
 
+[Demo Video](https://www.youtube.com/watch?v=IMnxmEtBPBE&feature=youtu.be)
+
 <img src="image.jpg" width="100%">
 
 ## You need
 
 Hardware:
 
-​	Raspberry Pi
-
-​	Neopixel
+  Raspberry Pi
+  Neopixel strip
 
 Software
 
-​	homebridge on Raspberry Pi
-
-​	python3
-
-
+  homebridge on Raspberry Pi
+  python3
+  nodejs
 
 
 ### Install 
 
 ```
-sudo npm install -g homebridge-neopixel --unsafe-perm
+sudo npm install -g pm2 homebridge homebridge-neopixel --unsafe-perm
 ```
 
 
@@ -51,6 +50,12 @@ sudo npm install -g homebridge-neopixel --unsafe-perm
         }
 ```
 
+### Start the homebridge
+```
+pm2 start homebridge
+```
+
+### Start the server
 ```python
 sudo FLASK_APP=server.py flask run
 ```
