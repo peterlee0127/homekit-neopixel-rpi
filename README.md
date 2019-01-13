@@ -1,7 +1,7 @@
 # homekit-neopixel-rpi
 homekit-neopixel-rpi 
 
-[Demo Video](https://www.youtube.com/watch?v=IMnxmEtBPBE&feature=youtu.be)
+[Demo Video](https://youtu.be/IMnxmEtBPBE)
 
 <img src="image.jpg" width="100%">
 
