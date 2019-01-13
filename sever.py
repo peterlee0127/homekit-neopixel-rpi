@@ -92,7 +92,6 @@ def on():
   global rgb
   pixels.fill(rgb)
   pixels.show()
-  rainbow_cycle(0.00001)
   return "on"
 
 @app.route("/off")
