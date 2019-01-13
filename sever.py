@@ -1,6 +1,7 @@
 import time
 import board
 import neopixel
+import threading
 
 from flask import Flask
 
@@ -21,7 +22,7 @@ app = Flask(__name__)
 
 rgb=(255,255,255)
 status = 0
-enableRanbow = False
+enableRainbow = False
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
@@ -53,13 +54,20 @@ def hex_to_rgb(value):
     lv = len(value)
     return tuple(int(value[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
 
-def rainbow_cycle(wait):
+def rainbow_cycle():
+  wait = 0.000001
   for j in range(255):
     for i in range(num_pixels):
       pixel_index = (i * 256 // num_pixels) + j
       pixels[i] = wheel(pixel_index & 255)
     pixels.show()
     time.sleep(wait)
+  global enableRainbow
+  if(enableRainbow):
+    rainbow_cycle()
+  else:
+    off()
+
 
 @app.route("/status")
 def status():
@@ -75,7 +83,6 @@ def bright():
   b = round(rgb[2]/2.55,2)
   x = max(r,g)
   V = max(x,b)
-  print(V)
   return str(V)
 
 @app.route("/color")
@@ -84,9 +91,25 @@ def color():
   value = rgb_to_hex(rgb)
   return str(value)
 
+
+@app.route("/rainbow")
+def rainbow():
+  global enableRainbow
+  global status
+  status = 1
+  global rgb
+  pixels.fill(rgb)
+  pixels.show()
+  if(enableRainbow==False):
+    t = threading.Thread(target = rainbow_cycle)
+    t.start()
+  enableRainbow=True
+  return "on"
+
+
+
 @app.route("/on")
 def on():
-  enableRanbow=True
   global status
   status = 1
   global rgb
@@ -98,14 +121,16 @@ def on():
 def off():
   global status
   status = 0
-  enableRanbow=False
+  global enableRainbow
+  enableRainbow=False
   pixels.fill((0,0,0))
   pixels.show()
   return "off"
 
 @app.route("/set/<values>")
 def set(values):
-  enableRanbow=False
+  global enableRainbow
+  enableRainbow=False
   h = values
   #h = values.replace("NA","0").replace("N","1")
   global rgb
