@@ -47,6 +47,7 @@ sudo npm install -g pm2 homebridge homebridge-neopixel --unsafe-perm
         "brightness": {
         "status": "http://localhost:5000/bright",
         "url": "http://localhost:5000/set/%s"
+        }
  },
 {
  	"accessory": "HTTP-NEO",
