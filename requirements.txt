@@ -1,3 +1,4 @@
 rpi_ws281x 
 adafruit-circuitpython-neopixel
 flask
+RPi.GPIO
