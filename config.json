@@ -1,0 +1,57 @@
+{
+   "bridge": {
+      "name": "Homebridge",
+      "username": "AC:12:3D:E6:CE:31",
+      "port": 51826,
+      "pin": "031-45-154"
+   },
+
+"description": "Example configuration file for Apple Homebridge - NeoPixel",
+
+"platforms": [
+
+],
+
+"accessories": [
+{     "accessory": "HTTP-NEO",
+        "name": "Neo Lamp",
+
+        "switch": {
+        "status": "http://localhost:5000/status",
+        "powerOn": "http://localhost:5000/on",
+        "powerOff": "http://localhost:5000/off"
+        },
+
+        "color": {
+        "status": "http://localhost:5000/color",
+        "url": "http://localhost:5000/set/%s"
+        },
+
+        "brightness": {
+        "status": "http://localhost:5000/bright",
+        "url": "http://localhost:5000/set/%s"
+        }
+ },
+{
+ 	"accessory": "HTTP-NEO",
+        "name": "Neo Rainbow",
+
+        "switch": {
+        "status": "http://localhost:5000/status",
+        "powerOn": "http://localhost:5000/rainbow",
+        "powerOff": "http://localhost:5000/off"
+        },
+
+        "color": {
+        "status": "http://localhost:5000/color",
+        "url": "http://localhost:5000/set/%s"
+        },
+
+        "brightness": {
+        "status": "http://localhost:5000/bright",
+        "url": "http://localhost:5000/set/%s"
+        }
+  }
+
+  ]
+}
