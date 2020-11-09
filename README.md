@@ -28,8 +28,9 @@ sudo npm install -g pm2 homebridge homebridge-neopixel --unsafe-perm
 
 ### setting
 ```
-# .homebridge/config
-# add 
+# .homebridge/config.json
+# see config.json for full example
+# add these lines in accessories
 {     "accessory": "HTTP-NEO",
         "name": "Neo Lamp",
 
